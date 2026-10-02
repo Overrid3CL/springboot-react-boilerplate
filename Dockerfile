@@ -1,8 +1,8 @@
 # Imagen única para Coolify: la SPA queda dentro del jar y se sirve en el mismo origen.
 
-FROM node:24-bookworm-slim AS frontend
+FROM node:26-bookworm-slim AS frontend
 WORKDIR /src
-RUN corepack enable && corepack prepare pnpm@12.8.1 --activate
+RUN npm install -g pnpm@12.8.1
 COPY frontend/package.json frontend/pnpm-lock.yaml frontend/pnpm-workspace.yaml ./
 COPY frontend/ ./
 RUN pnpm install --frozen-lockfile
