@@ -47,10 +47,12 @@ export type DeleteNoteData = {
 
 export type DeleteNoteResponses = {
     /**
-     * OK
+     * No Content
      */
-    200: unknown;
+    204: void;
 };
+
+export type DeleteNoteResponse = DeleteNoteResponses[keyof DeleteNoteResponses];
 
 export type GetNoteData = {
     body?: never;
@@ -113,9 +115,9 @@ export type CreateNoteData = {
 
 export type CreateNoteResponses = {
     /**
-     * OK
+     * Created
      */
-    200: NoteResponse;
+    201: NoteResponse;
 };
 
 export type CreateNoteResponse = CreateNoteResponses[keyof CreateNoteResponses];

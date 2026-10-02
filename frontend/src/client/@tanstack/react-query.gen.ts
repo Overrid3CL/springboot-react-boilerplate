@@ -4,10 +4,10 @@ import { type DefaultError, queryOptions, type UseMutationOptions } from '@tanst
 
 import { client } from '../client.gen';
 import { createNote, deleteNote, getCurrentPrincipal, getNote, getPublicConfig, listNotes, type Options, updateNote } from '../sdk.gen';
-import type { CreateNoteData, CreateNoteResponse, DeleteNoteData, GetCurrentPrincipalData, GetCurrentPrincipalResponse, GetNoteData, GetNoteResponse, GetPublicConfigData, GetPublicConfigResponse, ListNotesData, ListNotesResponse, UpdateNoteData, UpdateNoteResponse } from '../types.gen';
+import type { CreateNoteData, CreateNoteResponse, DeleteNoteData, DeleteNoteResponse, GetCurrentPrincipalData, GetCurrentPrincipalResponse, GetNoteData, GetNoteResponse, GetPublicConfigData, GetPublicConfigResponse, ListNotesData, ListNotesResponse, UpdateNoteData, UpdateNoteResponse } from '../types.gen';
 
-export const deleteNoteMutation = (options?: Partial<Options<DeleteNoteData>>): UseMutationOptions<unknown, DefaultError, Options<DeleteNoteData>> => {
-    const mutationOptions: UseMutationOptions<unknown, DefaultError, Options<DeleteNoteData>> = {
+export const deleteNoteMutation = (options?: Partial<Options<DeleteNoteData>>): UseMutationOptions<DeleteNoteResponse, DefaultError, Options<DeleteNoteData>> => {
+    const mutationOptions: UseMutationOptions<DeleteNoteResponse, DefaultError, Options<DeleteNoteData>> = {
         mutationFn: async (fnOptions) => {
             const { data } = await deleteNote({
                 ...options,
