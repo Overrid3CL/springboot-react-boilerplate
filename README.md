@@ -32,7 +32,7 @@ La SPA y la API comparten origen. No hay CORS. En desarrollo, Vite proxea `/api`
 
 ## Arranque local
 
-Requisitos: JDK 25 (Gradle puede descargarlo con el resolver de Foojay), Node.js 24, pnpm 12, Docker.
+Requisitos: JDK 25 (Gradle puede descargarlo con el resolver de Foojay), Node.js 26, pnpm 12, Docker.
 
 ```bash
 cp .env.example .env
