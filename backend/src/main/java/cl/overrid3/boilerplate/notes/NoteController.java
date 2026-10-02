@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import jakarta.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.overrid3.boilerplate.notes.internal.NoteService;
@@ -46,6 +48,7 @@ public class NoteController {
 	}
 
 	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
 	@Operation(operationId = "createNote")
 	public ResponseEntity<NoteResponse> create(@Valid @RequestBody CreateNoteRequest request) {
 		NoteResponse created = notes.create(request);
@@ -59,6 +62,7 @@ public class NoteController {
 	}
 
 	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@Operation(operationId = "deleteNote")
 	public ResponseEntity<Void> delete(@PathVariable UUID id) {
 		notes.delete(id);
